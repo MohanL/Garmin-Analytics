@@ -25,6 +25,22 @@ export class DateUtils {
         return date.split(' ')[0];
     }
 
+    public static formatDateToYYYYMMDD(date: string) {
+        let dateObject = new Date(date);
+        const year = DateUtils.getYear(dateObject);
+        const month = DateUtils.getMonth(dateObject);
+        const day = DateUtils.getDate(date);
+        return `${year}-${month}-${day}`;
+      }
+
+    private static getMonth(dateObject: Date) {
+        return (dateObject.getMonth() + 1).toString().padStart(2, '0');
+    }
+
+    private static getYear(dateObject: Date) {
+        return dateObject.getFullYear();
+    }
+
     /**
      * Formats date to readable string
      * @param date 
