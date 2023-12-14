@@ -1,4 +1,4 @@
-const ANALYTICS_URL = 'https://connect.garmin.com/modern/analytics';
+const ANALYTICS_URL = 'https://connect.garmin.cn/modern/analytics';
 const ANALYTICS_PAGE_SELECTED = window.location.href === ANALYTICS_URL;
 
 const initialPageLoadInterval = setInterval(function () {
@@ -118,12 +118,12 @@ async function loadPageDataAsync(page) {
     const limit = 100;
     const start = (page - 1) * limit;
 
-    const url = `https://connect.garmin.com/activitylist-service/activities/search/activities?limit=${limit}&start=${start}`;
+    const url = `https://connect.garmin.cn/activitylist-service/activities/search/activities?limit=${limit}&start=${start}`;
 
     const response = await fetch(url, {
         method: 'GET',
         headers: {
-            'di-backend': 'connectapi.garmin.com',
+            'di-backend': 'connectapi.garmin.cn',
             'authorization': 'Bearer ' + JSON.parse(localStorage.getItem('token')).access_token
         }
     });
